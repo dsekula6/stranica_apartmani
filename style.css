@@ -1,0 +1,317 @@
+body {
+  margin: 0 auto;
+  font-family: Arial, sans-serif, sans-serif;
+  text-align: center;
+} 
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  padding: 2em 0;
+}
+.flex1 {
+  flex: 1;
+}
+.flex-wrapper1 {
+  display: flex;
+}
+td {
+  background-color: white;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* semi-transparent black */
+  z-index: 9999; /* make sure the overlay is on top of everything else */
+}
+
+.focus {
+  position: relative;
+  z-index: 10000; /* make sure the focused div is on top of the overlay */
+}
+.highlighted {
+  background-color: rgb(188, 243, 255);
+}
+.selected-check-in {
+  background-color: rgb(100, 227, 255);
+}
+.selected-check-out {
+  background-color: rgb(100, 227, 255);
+}
+.dates-container {
+  text-align: right;
+}
+.dates-container input {
+  background-color: #eee;
+  color: #666;
+  font-size: 14px;
+  padding: 5px 0;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  margin: 5px 0;
+  width: 90px;
+}
+.button-order {
+  background-color: #334257;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 0;
+}
+.button-order:hover {
+  background-color: #FF6060;
+  color: #fff;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.calendar-table td.td-hovered:not(.disabled):hover {
+  background-color: rgb(188, 243, 255);
+}
+.sub-hovered {
+  background-color: rgb(188, 243, 255);
+}
+.booked {
+  background-color: #ffd560;
+  border-radius: 8px;
+}
+.person-price-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 5px;
+  border-radius: 8px;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.person-container select {
+  font-size: 16px;
+  padding: 3px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.price-container {
+  min-width: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+/* tr {
+  position: relative;
+} */
+.check-in {
+  border: 0px solid;
+  background-image: linear-gradient(135deg, transparent 50%, #ffd560 50%); /* Add a diagonal gradient to color only half of the box */
+}
+/* .check-in:hover {
+  background-image: linear-gradient(135deg, transparent 50%, #f1c95a 50%);
+} */
+.check-out {
+  border: 0px solid;
+  background-image: linear-gradient(-45deg, transparent 50%, #ffd560 50%); /* Add a diagonal gradient to color only half of the box */
+}
+/* .check-out:hover {
+  background-image: linear-gradient(-45deg, transparent 50%, #f1c95a 50%);
+} */
+
+.loader {
+  position: absolute;
+  top: 50%;
+  right: 40%;
+  transform: translate(calc(-50% - 60px), calc(-50% - 60px));
+  border: 16px solid #334257; /* Light grey */
+  border-top: 16px solid #fff; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.unloaded {
+  background-color: gainsboro;
+  opacity: 35%;
+}
+
+
+
+.calendar-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #334257;
+  color: #fff;
+  padding: 10px 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.calendar-header button {
+  background-color: #fff;
+  color: #334257;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.calendar-header button:hover {
+  background-color: #f2f2f2;
+}
+
+.calendar-header select {
+  background-color: #fff;
+  color: #334257;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.calendar-header select:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.calendar-table th {
+  text-align: center;
+  padding: 5px 0px;
+}
+.calendar-table td {
+  text-align: center;
+  padding: 15px 0px;
+}
+
+.calendar-table th {
+  color: #fff;
+  background-color: #334257;
+}
+
+.calendar-table td {
+  border: 1px solid #ccc;
+}
+
+.calendar-table td:not(.disabled):hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+.calendar-table td.booked:hover {
+  cursor: pointer;
+  background-color: #ffd560;
+}
+.calendar-table td.selected-check-in:hover {
+  cursor: pointer;
+  background-color: rgb(100, 227, 255);
+}
+.calendar-table td.selected-check-out:hover {
+  cursor: pointer;
+  background-color: rgb(100, 227, 255);
+}
+
+.calendar-table td.disabled {
+  color: #ccc;
+  background-color: #f2f2f2;
+}
+
+.selected {
+  background-color: #e6f2ff;
+}
+
+
+/* Default styles for all screen sizes */
+.calendar-container {
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin: 15px auto;
+}
+.apartment-container {
+  margin: 0 10px;
+  flex-basis: 450px;
+
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  
+}
+
+/* Styles for screens less than 768px wide (e.g. tablets) */
+@media (max-width: 600px) {
+  .calendar-container {
+    margin: 30px auto;
+    max-width: 350px;
+  }
+}
+@media (max-width: 769px) {
+
+  section {
+    width: 100%;
+    flex-direction: column;
+  }
+  .neparni {
+    flex-direction: column-reverse;
+  }
+  .person-price-container {
+    width: 90%;
+  }
+}
+@media (max-width: 900px) {
+  .calendar-table th,
+  .calendar-table td {
+    text-align: center;
+    padding: 10px 0px;
+}
+ .calendar-header select {
+  margin-top: 3px;
+ }
+ /* .person-price-container {
+  flex-direction: column;
+  width: min-content;
+} */
+}
+
+
+
+/* 320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
+1201px and more — Extra large screens, TV. */

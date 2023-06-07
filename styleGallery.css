@@ -1,0 +1,135 @@
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.gallery-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  float: left;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-main img {
+  max-width: 100%;
+  max-height: 400px;
+}
+
+.btn-left,
+.btn-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.btn-left {
+  left: 0;
+}
+
+.btn-right {
+  right: 0;
+}
+
+.gallery-preview {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  max-width: 500px;
+  height: 100px;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.preview-inner {
+  padding: 0px 5px;
+  display: flex; 
+  align-items: center;
+  height: 100%; 
+  scroll-behavior: smooth;
+  width: fit-content; 
+  overflow: hidden; 
+  transition: transform 0.5s ease-in-out; 
+}
+
+
+
+.preview-inner img {
+  object-fit: cover;
+}
+.image-container {
+  height: 100%;
+  width: 150px; 
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+  text-align: center; 
+}
+.image-container img {
+  height: 100%;
+  margin: 0 auto;
+}
+
+.gallery-preview img {
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.gallery-preview .image-container:last-child {
+  margin-right: 0;
+}
+
+.gallery-preview img.active {
+  border-color: red;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .gallery-preview {
+    max-width: 450px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .gallery-preview {
+    max-width: 400px;
+    height: 100px;
+  }
+  .image-container {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .gallery-main {
+    width: 100%;
+    float: none;
+  }
+
+  .gallery-preview {
+    height: 75px;
+    width: 100%; 
+    margin-left: 0; 
+  }
+  .image-container {
+    width: 125px;
+  }
+  .preview-inner img {
+    margin-right: 5px; 
+  }
+}
+
+
+/* 320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
+1201px and more — Extra large screens, TV. */
